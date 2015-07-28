@@ -15,7 +15,9 @@ public class Question1 {
     }
 
     public static List<String> getNamesAndOrigins(List<Artist> artists) {
-        return Exercises.replaceThisWithSolution();
+        return artists.stream()
+                .flatMap(artist -> Stream.of(artist.getName(), artist.getNationality()))
+                .collect(toList());
     }
 
     public static List<Album> getAlbumsWithAtMostThreeTracks(List<Album> input) {
